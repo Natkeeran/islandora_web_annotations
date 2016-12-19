@@ -18,5 +18,5 @@ class AnnotationConstants
     const WADMContainer_DSID = "WADMContainer";
     const WADMContainer_CONTENT_MODEL = "islandora:WADMContainerCModel";
     const WADMContainer_CONTENT_MODEL_LABEL = "Islandora Web Annotation Container Content Model";
-
+    const WADM_DERIVATIVE_DSID = "WADM_SEARCH";
 }
