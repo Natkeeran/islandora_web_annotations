@@ -13,6 +13,22 @@ branches:
   only:
     - issue-25
 
+env:
+  - FEDORA_VERSION="3.8.1"
+
+  - cd $HOME
+  - git clone -b 7.x git://github.com/Islandora/islandora.git
+  - git clone -b 7.x git://github.com/Islandora/islandora_solution_pack_collection.git
+  - git clone -b 7.x git://github.com/digitalutsc/islandora_web_annotations.git
+
+  - export ISLANDORA_DIR=$HOME/islandora
+  - $HOME/islandora/tests/scripts/travis_setup.sh
+  - cd $HOME/drupal-*
+
+  - ln -s $TRAVIS_BUILD_DIR sites/all/modules/islandora_web_annotations
+  - ln -s $HOME/islandora_solution_pack_collection sites/all/modules/islandora_solution_pack_collection
+
+  - drush en --user=1 --yes islandora_web_annotations
 
 script:
   - ant -buildfile sites/all/modules/islandora_solution_pack_oralhistories/build.xml lint
