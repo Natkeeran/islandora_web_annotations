@@ -5,7 +5,7 @@ sudo: true
 language: php
 
 php:
-  - 5.5
+  - 5.3.3
 
 branches:
   only:
@@ -33,6 +33,6 @@ before_install:
 script:
   - ant -buildfile sites/all/modules/islandora_web_annotations/build.xml lint
   - $ISLANDORA_DIR/tests/scripts/line_endings.sh sites/all/modules/islandora_web_annotations
-  - drush coder-review --reviews=production,security,style,i18n,potx islandora_web_annotations
+  - drush coder-review --reviews=production,security,i18n,potx,sniffer islandora_web_annotations
   - phpcpd --names *.module,*.inc,*.test sites/all/modules/islandora_web_annotations
 
