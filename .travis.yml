@@ -5,8 +5,6 @@ sudo: true
 language: php
 
 php:
-  - 5.3.3
-  - 5.4
   - 5.5
 
 branches:
@@ -31,5 +29,5 @@ env:
   - drush en --user=1 --yes islandora_web_annotations
 
 script:
-  - ant -buildfile sites/all/modules/islandora_solution_pack_oralhistories/build.xml lint
+  - ant -buildfile sites/all/modules/islandora_web_annotations/build.xml lint
 
