@@ -11,15 +11,10 @@ php:
 
 branches:
   only:
-    - master
+    - issue-25
 
 env:
-  - FEDORA_VERSION="3.5"
-  - FEDORA_VERSION="3.6.2"
-  - FEDORA_VERSION="3.7.0"
   - FEDORA_VERSION="3.8.1"
-
-
 
 before_install:
   - cd $HOME
@@ -36,6 +31,7 @@ before_install:
   - drush en --user=1 --yes islandora_web_annotations
 
 script:
+  - ant -buildfile sites/all/modules/islandora_web_annotations/build.xml lint
   - $ISLANDORA_DIR/tests/scripts/line_endings.sh sites/all/modules/islandora_web_annotations
   - drush coder-review --reviews=production,security,i18n,potx,sniffer islandora_web_annotations
   - phpcpd --names *.module,*.inc,*.test sites/all/modules/islandora_web_annotations
