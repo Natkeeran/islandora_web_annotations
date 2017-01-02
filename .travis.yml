@@ -14,6 +14,8 @@ branches:
 env:
   - FEDORA_VERSION="3.8.1"
 
+
+before_install:
   - cd $HOME
   - git clone -b 7.x git://github.com/Islandora/islandora.git
   - git clone -b 7.x git://github.com/Islandora/islandora_solution_pack_collection.git
