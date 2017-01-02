@@ -27,7 +27,7 @@ before_install:
 
   - ln -s $TRAVIS_BUILD_DIR sites/all/modules/islandora_web_annotations
   - ln -s $HOME/islandora_solution_pack_collection sites/all/modules/islandora_solution_pack_collection
-  
+
   - drush en --user=1 --yes islandora_web_annotations
 
 script:
